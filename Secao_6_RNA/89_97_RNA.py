@@ -145,3 +145,93 @@ Diminuí o número de atualizações e aumenta a velocidade de processamento.
 > Momento (Momentum): Técnica para aumentar a velocidade do algoritmo de descida do gradiente, reduzir instabilidades e
 evitar mínimos locais. Seu valor varia de 0 (não utilização) a 1. O valor recomendado para o termo momentum é 0,3.
 """
+#%%
+# 94. Topologias das redes neurais artificiais
+"""
+Processo de construção de uma rede neural
+1) Função de ativação.
+2) Algoritmo de aprendizagem.
+3) Topologia da rede neural.
+
+Topologia das redes neurais
+> Disposição dos neurônios na rede, como são estruturados. A topologia da rede está diretamente ligada ao tipo de
+algoritmo de aprendizado utilizado.
+> Existem três topologias:
+    1. Redes Alimentadas Adiante (Feed forward networks).
+    2. Redes Recorrentes (Feed backward networks).
+    3. Redes Competitivas.
+    
+Redes Alimentadas Adiante (Feed forward networks)
+> Forma de camadas:
+    1. Camada de entrada.
+    2. Camada intermediária (oculta).
+    3. Camada de saida.
+> Neurônios em conjuntos distintos e ordenados sequencialmente.
+> Nas redes alimentadas adiante, o fluxo de informação é sempre da camada de entrada para a camada de saída.
+
+Redes Recorrentes
+> Ocorrência de realimentação.
+
+Redes Competitivas
+> Neurônios estão divididos em duas camadas, a camada de entrada (fonte) e a camada de saída (grade).
+> Neurônios da grade são forçados a competir entre si e somente o neurônio vencedor será ativado.
+> A rede mais conhecida é a rede de Kohonen (mapa auto-organizável).
+
+Redes Multilayer Perceptron (MLP)
+> Redes alimentadas adiante (feed forward networks).
+> Todos os neurônios são ligados aos neurônios da camada subsequente, não havendo ligação com os neurônios laterais.
+> O principal algoritmo de treinamento é o de retropropagação de erro (error backpropagation).
+"""
+#%%
+# 95. Algoritmo Backpropagation
+"""
+Algoritmo backpropagation (BP): Algoritmo de retropropagação de erro.
+> Sentido inverso do forward propagation para ajustar pesos.
+> Algoritmo mais importante das redes neurais.
+> Aumenta a velocidade consideravelmente da descida do gradiente, calculando rapidamente as derivadas.
+> Imprescindível para Deep Learning.
+"""
+#%%
+# 96. Definição dos hiperparâmetros
+"""
+Definição dos Parâmetros
+> Pequenas diferenças nos parâmetros podem levar a grandes diferenças no tempo de treinamento e nos resultados.
+> Sugestões:
+    1. Número de camadas ocultas:
+        >>> Não exagerar no número de camadas ocultas. Normalmente duas já atingem resultados excelentes.
+        >>> Para conjunto de dados pequenos e não muito complexos normalmente uma camada oculta já é suficiente.
+        >>> Mais de duas camadas são para problemas complexos, como visão computacional.
+    
+    2. Número de neurônios nas camadas ocultas:
+        >>> Neurônios em excesso causam overfitting (memorização dos dados de treinamento, ótimo resultado com os dados
+        de treinamento e resultados tuins com dados de teste).
+        >>> Falta de neurônios causam underfitting (modelo modelo não consegue encontrar relações com os dados, os
+        resultados já são ruins com os dados de treinamento).
+        Qtd Neurônios = Neurônios de entrada + Neurônios de saida / 2;
+        ou
+        Qtd Neurônios = (2 * Neurônios de entrada)/3 + Neurônios de saida;
+
+    3. Taxa de aprendizagem:
+        >>> Taxa de aprendizagem muito baixa pode tornar o aprendizado da rede muito lento.
+        >>> Taxa de aprendizagem muito alta provoca oscilações no treinamento.
+        >>> Geralmente seu valor varia de 0,1 a 1.
+        >>> Sugestão: utilizar 0,4
+        
+    4. Momento:
+        >>> Objetivo é aumentar a velocidade de treinamento da rede e reduzir o perigo de instabilidade.
+        >>> A utilização é optativa.
+        >>> O valor varia de 0 (não utilização) a 1.
+        >>> Valor recomendado: 0,3
+        
+    5. Parada de treinamento por número de ciclos:
+        >>> Número de ciclos: o número de vezes em que o conjunto de treinamento é utilizado pela rede.
+        >>> Excesso de ciclos causa overfitting.
+        >>> Número pequeno de ciclos causa underfitting.
+        >>> Sugere-se um valor entre 500 e 3000 ciclos de treinamento.
+        
+    6. Parada de treinamento por erro:
+        >>> Encerra o treinamento após o erro quadrático médio ficar abaixo de um valor pré-definido.
+        >>> Sugestão é estabelecer um valor de 0,01 no primeiro treinamento e depois ajustá-lo em função do resultado.
+        
+    
+"""
